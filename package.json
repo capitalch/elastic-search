@@ -1,0 +1,24 @@
+{
+  "name": "elastic-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "elasticsearch": "^16.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capitalch/elastic-search.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/capitalch/elastic-search/issues"
+  },
+  "homepage": "https://github.com/capitalch/elastic-search#readme"
+}
