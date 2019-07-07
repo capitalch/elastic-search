@@ -1,4 +1,5 @@
 const es = require('@elastic/elasticsearch');
+const nobelPrizeWinners = require('./data/nobelprize.json');
 const client = new es.Client({
     node: 'http://localhost:9200'
 })
@@ -10,10 +11,11 @@ const dataArray = [
     { "name": "Niraj", "address": "USA" }
 ]
 
+const dataArray1 = nobelPrizeWinners.prizes;
+
 const getIndexTemplate = (i) => `{"index":{"_id":${i + 1}}}`
 
 function doIndex(arr, template) {
-
     const bulk = []
     arr.forEach((x, i) => {
         const j = JSON.parse(template(i));
@@ -23,10 +25,11 @@ function doIndex(arr, template) {
     return bulk;
 }
 
-const bulk = doIndex(dataArray, getIndexTemplate);
+// const bulk = doIndex(dataArray, getIndexTemplate);
+const bulk = doIndex(dataArray1, getIndexTemplate);
 client.bulk(
     {
-        index: 'myindex',
+        index: 'nobel',
         body: bulk
     }, function (err, resp) {
         if (err) {
