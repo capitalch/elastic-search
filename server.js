@@ -1,7 +1,9 @@
 const es = require('@elastic/elasticsearch');
 const nobelPrizeWinners = require('./data/nobelprize.json');
+const esUrl = 'http://node18391-elastic.cloudjiffy.net:11039';
+// const esUrl = 'http://localhost:9200';
 const client = new es.Client({
-    node: 'http://localhost:9200'
+    node: esUrl
 })
 
 const dataArray = [
